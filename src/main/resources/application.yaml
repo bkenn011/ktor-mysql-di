@@ -1,0 +1,11 @@
+ktor:
+  application:
+    modules:
+      - org.harper1.ApplicationKt.module
+  deployment:
+    port: 8085
+
+mysql:
+  jdbcUrl: "jdbc:mysql://blueiris.home.bk:3306/house"
+  dbUser: "user"
+  dbPw: "password"

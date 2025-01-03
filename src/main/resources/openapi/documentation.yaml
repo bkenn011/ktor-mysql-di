@@ -1,0 +1,51 @@
+openapi: "3.0.3"
+info:
+  title: "Application API"
+  description: "Application API"
+  version: "1.0.0"
+servers:
+  - url: "http://0.0.0.0:8085"
+paths:
+  /sensors/list:
+    get:
+      summary: "Get All Sensors"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "array"
+              examples:
+                Example#1:
+                  value: "[{
+    \"mac\": \"DC:4F:22:18:33:BB\",
+    \"ip\": \"10.0.0.252\",
+    \"fw\": \"2.1DHT-GET\",
+    \"name\": \"Guest Bed\",
+    \"updated\": \"2025-01-02 14:32:03\"
+}]"#
+  /sensors/{mac}:
+    get:
+      summary: "Get Specific Sensor"
+      parameters:
+        - in: path
+          name: mac
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "object"
+              examples:
+                Example#1:
+                  value: "{
+    \"mac\": \"DC:4F:22:18:33:BB\",
+    \"ip\": \"10.0.0.252\",
+    \"fw\": \"2.1DHT-GET\",
+    \"name\": \"Guest Bed\",
+    \"updated\": \"2025-01-02 14:32:03\"
+}"
+components:
+  schemas: { }
